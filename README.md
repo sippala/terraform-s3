@@ -9,6 +9,7 @@ Default value of count is 1, so if the count variable isn't specified, bucket wi
 
 We make use of ternary operators to define count variable across environments, for bucket 1, we defined count as 
 ``count = "${(var.aws-account == "prod" || var.aws-account == "beta") ? 1 : 0}"`` 
+
 so for bucket 1, count=1 for prod and beta and count=0 for all other environments. 
 
 when we run terraform apply -var-file="var-file.dev", aws-account="dev" in var-file.dev, so count=0, bucket_1 will not be created in dev, only bucket_2 and 3 will be created in dev. 
