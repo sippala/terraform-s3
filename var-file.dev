@@ -1,0 +1,63 @@
+aws-account = "dev"
+
+lifecycle_rule_bucket_1 =    [{
+      enabled = true
+      id = "Expire after 7 days"
+      prefix = ""
+
+      expiration = [
+        { days = 7 },
+      ]
+
+      noncurrent_version_expiration = [
+        { days = 7 },
+      ]
+}
+]
+
+lifecycle_rule_bucket_2 =    [{
+      enabled = true
+      id = "Move to S3-IA after 30 days"
+      prefix = ""
+    transition = [{
+      days          = 30
+      storage_class = "STANDARD_IA"
+    }, ]
+
+    noncurrent_version_transition = [{
+      days          = 30
+      storage_class = "STANDARD_IA"
+    },]
+}
+]
+
+lifecycle_rule_bucket_3 =    [{
+      enabled = true
+      id = "Expire docs/ after 30 days"
+      prefix = "docs/"
+
+      expiration = [
+        { days = 30 },
+      ]
+
+      noncurrent_version_expiration = [
+        { days = 30 },
+      ]
+    },
+    {
+      enabled = true
+      id = "Transform shared/ after 30 days"
+      prefix = "shared/"
+      
+      transition = [{
+        days          = 30
+        storage_class = "STANDARD_IA"
+      }, ]
+
+      noncurrent_version_transition = [{
+        days          = 30
+        storage_class = "STANDARD_IA"
+      },]
+    }
+]
+
