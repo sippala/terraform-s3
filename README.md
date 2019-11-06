@@ -12,4 +12,4 @@ We make use of ternary operators to define count variable across environments, f
 
 so for bucket 1, count=1 for prod and beta and count=0 for all other environments. 
 
-when we run terraform apply -var-file="var-file.dev", aws-account="dev" in var-file.dev, so count=0, bucket_1 will not be created in dev, only bucket_2 and 3 will be created in dev. 
+when we run ``terraform apply -var-file="var-file.dev"``, aws-account="dev" in var-file.dev, so count=0, bucket_1 will not be created in dev, only bucket_2 and 3 will be created in dev. 
