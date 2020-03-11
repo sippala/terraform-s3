@@ -3,7 +3,7 @@ This terraform code creates S3 buckets, we can use the same code to provision bu
 It is better to save aws credentials in the shared credentials file ($HOME/.aws/credentials/) instead of adding credentials in the aws.tf file under providers section.
 
 usage: ``terraform init
-       terraform apply -var-file="var-file.dev"``
+terraform apply -var-file="var-file.dev"``
 
 Default value of count is 1, so if the count variable isn't specified, bucket will be created. 
 
